@@ -32,7 +32,7 @@ public class UpperCaseFilterWriter extends FilterWriter {
   @Override
   public void write(int c) throws IOException {
     //We use the inherited function.
-    super.write(String.valueOf((char)c));
+    super.write(String.valueOf((char)c).toUpperCase());
   }
 
 }
