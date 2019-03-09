@@ -1,5 +1,7 @@
 package ch.heigvd.res.labio.impl.filters;
 
+import lombok.ToString;
+
 import java.io.FilterWriter;
 import java.io.IOException;
 import java.io.Writer;
@@ -16,17 +18,21 @@ public class UpperCaseFilterWriter extends FilterWriter {
 
   @Override
   public void write(String str, int off, int len) throws IOException {
-    throw new UnsupportedOperationException("The student has not implemented this method yet.");
+    //I used the inherited class to understand what to do and how to use the already present code.
+    super.write(str.toUpperCase(),off,len);
+
   }
 
   @Override
   public void write(char[] cbuf, int off, int len) throws IOException {
-    throw new UnsupportedOperationException("The student has not implemented this method yet.");
+    //Transformation to a String then we use the first function.
+    write(String.valueOf(cbuf),off,len);
   }
 
   @Override
   public void write(int c) throws IOException {
-    throw new UnsupportedOperationException("The student has not implemented this method yet.");
+    //We use the inherited function.
+    super.write(String.valueOf((char)c));
   }
 
 }
