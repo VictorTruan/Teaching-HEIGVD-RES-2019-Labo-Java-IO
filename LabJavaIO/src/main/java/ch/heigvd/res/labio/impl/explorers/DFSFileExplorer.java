@@ -21,20 +21,8 @@ public class DFSFileExplorer implements IFileExplorer {
         visitor.visit(rootDirectory);
         File[] tabfile = rootDirectory.listFiles();
         if(tabfile != null){
-
             Arrays.sort(tabfile);
-            ArrayList<File> dir = new ArrayList();
-
             for (File file : tabfile) {
-
-                if(file.isDirectory()){
-                    dir.add(file);
-                }else{
-                    visitor.visit(file);
-                }
-            }
-
-            for (File file : dir){
                 explore(file,visitor);
             }
         }
