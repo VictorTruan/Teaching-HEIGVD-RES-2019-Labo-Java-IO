@@ -18,13 +18,16 @@ public class DFSFileExplorer implements IFileExplorer {
 
     @Override
     public void explore(File rootDirectory, IFileVisitor visitor) {
-        visitor.visit(rootDirectory);
-        File[] tabfile = rootDirectory.listFiles();
-        if(tabfile != null){
-            Arrays.sort(tabfile);
-            for (File file : tabfile) {
-                explore(file,visitor);
+        if(rootDirectory != null){
+            visitor.visit(rootDirectory);
+            File[] tabfile = rootDirectory.listFiles();
+            if(tabfile != null){
+                Arrays.sort(tabfile);
+                for (File file : tabfile) {
+                    explore(file,visitor);
+                }
             }
         }
+
     }
 }
