@@ -53,9 +53,7 @@ public class FileNumberingFilterWriter extends FilterWriter {
             //We write the line lumber after the \n or \r
             String tmp = String.valueOf(compteur++);
             tmp += "\t";
-            for (int i = 0; i < tmp.length(); i++) {
-                super.write(tmp.charAt(i));
-            }
+            super.write(tmp,0,tmp.length());
             //if this was after a \n we need to write after the line number.
             if ((char) c != '\n') {
                 super.write(c);
